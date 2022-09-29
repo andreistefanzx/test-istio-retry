@@ -12,7 +12,8 @@ Because retries is set to 0 `attempts: 0` inside the VirtualService, the istio e
 curl ====> istio-proxy ====> egressgateway ====> http://httpstat.us/503
 1xReq      1xReq             1xReq               1xReq  
 
-By default, the retry mechanishm is configured with 2 retries (`attempts: 2`) which means the external service will receive a total of 3 requests (1 initial request plus 2 retries):
+By default, the retry mechanishm is configured with 2 retries (`attempts: 2`) which means the external service will receive a total of 3 requests (1 initial request plus 2 retries).
+
 curl ====> istio-proxy ====> egressgateway ====> http://httpstat.us/503
 1xReq      1xReq             1xReq + 2 RetReq    1xReq + 2 RetReq 
 

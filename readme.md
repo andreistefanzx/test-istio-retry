@@ -13,6 +13,7 @@ Because retries is set to 0 `attempts: 0` inside the VirtualService, the istio e
 By default, the retry mechanishm is configured with 2 retries (`attempts: 2`) which means the external service will receive a total of 3 requests (1 initial request plus 2 retries):
 * curl(1xReq ) => istio-proxy(1xReq) => egressgateway(1xReq+2xRetReq) => http://httpstat.us/503
 
+So if you have retry mechanism implemented on the client side, you'll get 3 times more requests on the external service becasue of istio retry policy.
 
 ```
 # apply istio config
